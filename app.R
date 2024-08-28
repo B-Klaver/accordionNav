@@ -20,11 +20,7 @@ ui <- page_sidebar(
       id = "accord_select",
       accordion_panel(
         title = "Domain 1",
-        value = "panel1",
-        nav_panel(
-            title = "Sub-domain 1", 
-            p("First tab content.")
-          )
+        value = "panel1"
       ),
       accordion_panel(
         title = "Domain 2",
