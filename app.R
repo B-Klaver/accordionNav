@@ -11,16 +11,20 @@ thematic::thematic_shiny()
 # UI --------------------------------------------------------------------------
 
 ui <- page_sidebar(
-  title = "Test the navigation",
+  title = "Accordion Navigation Example",
   class = "bslib-page-dashboard",
   sidebar = sidebar(
     accordion(
       multiple = FALSE,
       open = FALSE,
-      id = "accord",
+      id = "accord_select",
       accordion_panel(
         title = "Domain 1",
-        value = "panel1"
+        value = "panel1",
+        nav_panel(
+            title = "Sub-domain 1", 
+            p("First tab content.")
+          )
       ),
       accordion_panel(
         title = "Domain 2",
@@ -30,7 +34,8 @@ ui <- page_sidebar(
         title = "Domain 3",
         value = "panel3"
       )
-    )
+    ),
+  bslib::input_dark_mode()
   ),
   navset_hidden(
     id = "hidden_tabs",
@@ -54,7 +59,7 @@ ui <- page_sidebar(
 server <- function(input, output, session) {
   
   observe(
-    nav_select("hidden_tabs", input$accord)
+    nav_select("hidden_tabs", input$accord_select)
   )
   
 }
