@@ -5,13 +5,6 @@ thematic::thematic_shiny()
 
 devtools::load_all()
 
-#The plan is to set up an accordion with accordion panels with the names
-# Then we will use hidden navset panels that will be flipped to reactively
-#https://shiny.posit.co/py/api/core/ui.navset_hidden.html
-#https://rstudio.github.io/bslib/reference/accordion.html
-
-
-
 # SETUP -----------------------------------------------------------------------
 
 
@@ -27,30 +20,6 @@ domain_list <- list(
   "Domain 3" = list()
 )
 
-
-# accordionPanelSelect <- function(input, output, session, panel_id, accordion_id, menu_list) {
-#   
-#   observe(
-#     nav_select(panel_id, input[[accordion_id]])
-#   )
-#   
-#   purrr::flatten(menu_list) |> 
-#     purrr::map(
-#       \(id) {
-#         
-#         id_clean <- tolower(stringr::str_replace_all(id, "[[:punct:]]|[[:blank:]]", ""))
-#         
-#         shiny::observeEvent(input[[id_clean]], {
-#           shiny::updateTabsetPanel(
-#             session = session,
-#             inputId = accordion_id,
-#             selected = id_clean
-#           )
-#         })
-#       }
-#     )
-#   
-# }
 
 
 
@@ -99,34 +68,13 @@ ui <- page_sidebar(
 
 server <- function(input, output, session) {
   
-  # accordionPanelSelect(
-  #   input,
-  #   output,
-  #   session,
-  #   panel_id = "hidden_tabs",
-  #   accordion_id = "accord_select",
-  #   menu_list = domain_list
-  # )
-  
-  observe(
-    nav_select("hidden_tabs", input$accord_select)
+  accordionPanelSelect(
+    input, 
+    session,
+    panel_id = "hidden_tabs",
+    accordion_id = "accord_select",
+    menu_list = domain_list
   )
-
-  purrr::flatten(domain_list) |>
-    purrr::map(
-      \(id) {
-
-        id_clean <- tolower(stringr::str_replace_all(id, "[[:punct:]]|[[:blank:]]", ""))
-
-        shiny::observeEvent(input[[id_clean]], {
-          shiny::updateTabsetPanel(
-            session = session,
-            inputId = "hidden_tabs",
-            selected = id_clean
-          )
-        })
-      }
-    )
   
 }
 
