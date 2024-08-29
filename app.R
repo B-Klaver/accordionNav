@@ -13,43 +13,86 @@ thematic::thematic_shiny()
 ui <- page_sidebar(
   title = "Accordion Navigation Example",
   class = "bslib-page-dashboard",
-  sidebar = sidebar(
-    accordion(
-      multiple = FALSE,
-      open = FALSE,
-      id = "accord_select",
-      accordion_panel(
-        title = "Domain 1",
-        value = "panel1",
+  # sidebar = sidebar(
+  #   accordion(
+  #     multiple = FALSE,
+  #     open = FALSE,
+  #     id = "accord_select",
+  #     accordion_panel(
+  #       title = "Domain 1",
+  #       value = "panel1"
+  #     ),
+  #     accordion_panel(
+  #       title = "Domain 2",
+  #       value = "panel2"
+  #     ),
+  #     accordion_panel(
+  #       title = "Domain 3",
+  #       value = "panel3"
+  #     )
+  #   ),
+  # bslib::input_dark_mode()
+  # ),
+  # navset_hidden(
+  #   id = "hidden_tabs",
+  #   nav_panel_hidden(
+  #     value = "panel1",
+  #     "Panel 1 content"
+  #   ),
+  #   nav_panel_hidden(
+  #     value = "panel2",
+  #     "Panel 2 content"
+  #   ),
+  #   nav_panel_hidden(
+  #     value = "panel3",
+  #     "Panel 3 content"
+  #   )
+  # ),
+  navset_pill_list(
+    widths = c(2, 10),
+    well = FALSE,
+    nav_panel(
+      title = "Panel 1", 
+      navset_pill_list(
+        widths = c(2, 10),
+        well = FALSE,
         nav_panel(
-            title = "Sub-domain 1", 
-            p("First tab content.")
-          )
-      ),
-      accordion_panel(
-        title = "Domain 2",
-        value = "panel2"
-      ),
-      accordion_panel(
-        title = "Domain 3",
-        value = "panel3"
+          title = "Sub-panel 1.1",
+          p("Sub-panel 1.1 content")
+        ),
+        nav_panel(
+          title = "Sub-panel 1.2",
+          p("Sub-panel 1.2 content")
+        )
       )
     ),
-  bslib::input_dark_mode()
-  ),
-  navset_hidden(
-    id = "hidden_tabs",
-    nav_panel_hidden(
-      value = "panel1",
-      "Panel 1 content"
+    nav_panel(
+      title = "Panel 2", 
+      navset_pill_list(
+        widths = c(2, 10),
+        nav_panel(
+          title = "Sub-panel 2.1",
+          p("Sub-panel 2.1 content")
+        ),
+        nav_panel(
+          title = "Sub-panel 2.2",
+          p("Sub-panel 2.2 content")
+        )
+      )
     ),
-    nav_panel_hidden(
-      value = "panel2",
-      "Panel 2 content"
-    ),
-    nav_panel_hidden(
-      value = "panel3",
-      "Panel 3 content"
+    nav_panel(
+      title = "Panel 3", 
+      navset_pill_list(
+        widths = c(2, 10),
+        nav_panel(
+          title = "Sub-panel 3.1",
+          p("Sub-panel 3.1 content")
+        ),
+        nav_panel(
+          title = "Sub-panel 3.2",
+          p("Sub-panel 3.2 content")
+        )
+      )
     )
   )
 )
@@ -58,9 +101,9 @@ ui <- page_sidebar(
 
 server <- function(input, output, session) {
   
-  observe(
-    nav_select("hidden_tabs", input$accord_select)
-  )
+  # observe(
+  #   nav_select("hidden_tabs", input$accord_select)
+  # )
   
 }
 
