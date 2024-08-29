@@ -1,12 +1,8 @@
-library(shiny)
-library(bslib)
-
-thematic::thematic_shiny()
-
-devtools::load_all()
 
 # SETUP -----------------------------------------------------------------------
 
+
+devtools::load_all()
 
 
 domain_list <- list(
@@ -25,40 +21,40 @@ domain_list <- list(
 
 # UI --------------------------------------------------------------------------
 
-ui <- page_sidebar(
+ui <- bslib::page_sidebar(
   title = "Accordion Navigation Example",
   class = "bslib-page-dashboard",
-  sidebar = sidebar(
+  sidebar = bslib::sidebar(
     accordionTabset(
       "accord_select", 
       domain_list
-      ),
+    ),
     bslib::input_dark_mode()
   ),
-  navset_hidden(
+  bslib::navset_hidden(
     id = "hidden_tabs",
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(names(domain_list[1]), "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = names(domain_list[1]),
       "Panel 1 content"
     ),
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(domain_list[[names(domain_list[1])]][[1]], "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = domain_list[[names(domain_list[1])]][[1]],
       "Panel 1.1 content"
     ),
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(domain_list[[names(domain_list[1])]][[2]], "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = domain_list[[names(domain_list[1])]][[2]],
       "Panel 1.2 content"
     ),
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(names(domain_list[2]), "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = names(domain_list[2]),
       "Panel 2 content"
     ),
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(domain_list[[names(domain_list[2])]][[1]], "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = domain_list[[names(domain_list[2])]][[1]],
       "Panel 2.1 content"
     ),
-    nav_panel_hidden(
-      value = tolower(stringr::str_replace_all(names(domain_list[3]), "[[:punct:]]|[[:blank:]]", "")),
+    bslib::nav_panel_hidden(
+      value = names(domain_list[3]),
       "Panel 3 content"
     )
   )
@@ -78,5 +74,5 @@ server <- function(input, output, session) {
   
 }
 
-shinyApp(ui, server)
+shiny::shinyApp(ui, server)
 
