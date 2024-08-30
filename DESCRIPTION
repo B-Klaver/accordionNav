@@ -9,7 +9,7 @@ Authors@R:
       person(given = "Joy", 
              family = "Ding", 
              email = "joyding0330@gmail.com", 
-             role = c("aut", "cre")))
+             role = c("aut")))
 Description: This package allows for accordion dropdowns to provide menu options for tab navigation.
 License: MIT + file LICENSE
 Encoding: UTF-8
