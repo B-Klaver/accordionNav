@@ -1,8 +1,15 @@
 Package: accordionNav
-Title: Create dropdown navigation.
+Title: Accordion Navigation Tabs.
 Version: 1.0.0
 Authors@R: 
-    person("Braeden", "Klaver", , "braeden.klaver@bccdc.ca", role = c("aut", "cre"))
+    c(person(given = "Braeden", 
+             family = "Klaver", 
+             email = "braedenklaver@gmail.com", 
+             role = c("aut", "cre")),
+      person(given = "Joy", 
+             family = "Ding", 
+             email = "joyding0330@gmail.com", 
+             role = c("aut", "cre")))
 Description: This package allows for accordion dropdowns to provide menu options for tab navigation.
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -11,5 +18,4 @@ RoxygenNote: 7.3.1
 Imports: 
     bslib,
     purrr,
-    shiny,
-    stringr
+    shiny

@@ -1,6 +1,11 @@
 #' @title accordionPanelSelect
 #' @author Braeden Klaver
 #' @usage accordionPanelSelect(input, session, panel_id, accordion_id, menu_list)
+#' @param input The server input
+#' @param session The server session
+#' @param panel_id The shiny app ID for the nav panels.
+#' @param accordion_id The shiny app ID for the accordion menu.
+#' @param menu_list The nested list with menu and sub-menu items.
 #' @importFrom purrr map
 #' @importFrom purrr flatten
 #' @importFrom bslib nav_select

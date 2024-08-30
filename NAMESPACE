@@ -2,6 +2,11 @@
 
 importFrom(bslib,accordion)
 importFrom(bslib,accordion_panel)
+importFrom(bslib,nav_select)
+importFrom(purrr,flatten)
 importFrom(purrr,map)
 importFrom(shiny,actionLink)
-importFrom(stringr,str_replace_all)
+importFrom(shiny,moduleServer)
+importFrom(shiny,observe)
+importFrom(shiny,observeEvent)
+importFrom(shiny,updateTabsetPanel)

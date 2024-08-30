@@ -1,9 +1,32 @@
 
-# SETUP -----------------------------------------------------------------------
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
+# accordionNav
 
-devtools::load_all()
+<!-- badges: start -->
+<!-- badges: end -->
 
+This project showcases an easy way to create menu items stored within a
+navigation dropdown menu in bslib.
+
+## Installation
+
+You can install the development version of accordionNav from
+[GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("B-Klaver/accordionNav")
+```
+
+## Example
+
+Set up your menu using nested lists:
+
+``` r
+library(accordionNav)
+
+## set up menu list
 
 domain_list <- list(
   "Domain 1" = list(
@@ -19,11 +42,15 @@ domain_list <- list(
     "Sub-domain 3.3"
   )
 )
+```
 
+Now you can use this menu list within a sidebar UI using the
+`accordionTabset()` function. In addition, create a `navset_hidden()`
+bin and place your panels that you’d like to show with
+`nav_panel_hidden()`. The values should be set to the name of the menu
+item it relates to:
 
-
-
-# UI --------------------------------------------------------------------------
+``` r
 
 ui <- bslib::page_sidebar(
   title = "Accordion Navigation Example",
@@ -33,8 +60,7 @@ ui <- bslib::page_sidebar(
       "accord_select", 
       domain_list,
       class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100"
-    ),
-    bslib::input_dark_mode()
+    )
   ),
   bslib::navset_hidden(
     id = "hidden_tabs",
@@ -64,8 +90,12 @@ ui <- bslib::page_sidebar(
     )
   )
 )
+```
 
-# Server ----------------------------------------------------------------------
+Easily link the accordion tabset buttons to the hidden nav panels using
+the `accordionPanelSelect()` function:
+
+``` r
 
 server <- function(input, output, session) {
   
@@ -78,6 +108,4 @@ server <- function(input, output, session) {
   )
   
 }
-
-shiny::shinyApp(ui, server)
-
+```

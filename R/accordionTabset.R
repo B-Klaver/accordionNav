@@ -1,13 +1,16 @@
 #' @title accordionTabset
 #' @author Braeden Klaver
-#' @usage accordionTabset(id, menu_list, class)
+#' @usage accordionTabset(id, menu_list, class = NULL)
+#' @param id The shiny ID
+#' @param menu_list The nested list with menu items and sub-items.
+#' @param class The custom CSS class for the sub-item menu items
 #' @importFrom purrr map
 #' @importFrom shiny actionLink
 #' @importFrom bslib accordion
 #' @importFrom bslib accordion_panel
 #' @return An accordion list for domain and sub-domain
 
-accordionTabset <- function(id, menu_list, class = "") {
+accordionTabset <- function(id, menu_list, class = NULL) {
   
   names(menu_list) |> 
     purrr::map(
