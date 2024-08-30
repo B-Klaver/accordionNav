@@ -13,22 +13,25 @@
 
 accordionPanelSelect <- function(input, session, panel_id, accordion_id, menu_list) {
   
+  #This will allow for nav panels linked to the accordion drop downs
   shiny::observe(
     bslib::nav_select(panel_id, input[[accordion_id]])
   )
   
+  #This will allow for nav panels linked to the action links from the drop downs
   purrr::flatten(menu_list) |>
-    purrr::map(
-      \(id) {
-        
-        shiny::observeEvent(input[[id]], {
+  purrr::map(
+    \(id) {
+      shiny::observeEvent(
+        input[[id]], {
           shiny::updateTabsetPanel(
             session = session,
             inputId = panel_id,
             selected = id
           )
-        })
-      }
-    )
+        }
+      )
+    }
+  )
   
 }
