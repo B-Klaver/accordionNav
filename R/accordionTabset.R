@@ -10,25 +10,54 @@
 #' @importFrom bslib accordion_panel
 #' @return An accordion list for domain and sub-domain
 
-accordionTabset <- function(id, menu_list, class = NULL) {
+accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
   
-  names(menu_list) |> 
-    purrr::map(
-      \(item_id)
-      bslib::accordion_panel(
-        title = item_id,
-        value = item_id,
-        menu_list[[item_id]] |>
-          purrr::map(
-            \(subitem_id)
-            shiny::actionLink(
-              subitem_id,
-              subitem_id,
-              class = class
+  if (is.null(icon_list)) {
+    list(item_id = names(menu_list)) |> 
+      purrr::map(
+        \(item_id)
+        bslib::accordion_panel(
+          title = item_id,
+          value = item_id,
+          menu_list[[item_id]] |>
+            purrr::map(
+              \(subitem_id)
+              shiny::actionLink(
+                inputId = subitem_id,
+                label   = htmltools::tags$span(
+                  htmltools::HTML("&nbsp;"),
+                  icon("angles-right"),
+                  htmltools::HTML("&nbsp;"),
+                  subitem_id),
+                class   = class
+              )
             )
-          )
+        )
       )
-    ) |> 
+  } else {
+    list(item_id = names(menu_list), icon = icon_list) |> 
+      purrr::pmap(
+        \(item_id, icon)
+        bslib::accordion_panel(
+          title = item_id,
+          value = item_id,
+          icon  = bsicons::bs_icon(icon),
+          menu_list[[item_id]] |>
+            purrr::map(
+              \(subitem_id)
+              shiny::actionLink(
+                inputId = subitem_id,
+                label   = htmltools::tags$span(
+                  htmltools::HTML("&nbsp;"),
+                  icon("angles-right"),
+                  htmltools::HTML("&nbsp;"),
+                  subitem_id),
+                class   = class
+              )
+            )
+        )
+      )
+  } |> 
     bslib::accordion(
       multiple = FALSE,
       open = FALSE,

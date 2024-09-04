@@ -20,7 +20,11 @@ domain_list <- list(
   )
 )
 
-
+domain_icon <- c(
+  "people-fill",
+  "house-door-fill",
+  "person-walking"
+  )
 
 
 # UI --------------------------------------------------------------------------
@@ -30,8 +34,9 @@ ui <- bslib::page_sidebar(
   class = "bslib-page-dashboard",
   sidebar = bslib::sidebar(
     accordionTabset(
-      "accord_select", 
-      domain_list,
+      id = "accord_select", 
+      menu_list = domain_list,
+      icon_list = domain_icon,
       class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100"
     ),
     bslib::input_dark_mode()
