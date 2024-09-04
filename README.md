@@ -44,6 +44,24 @@ domain_list <- list(
 )
 ```
 
+If you want to add icons in front of each domain, set up the icon list
+using the following code and you can substitute the icons with anyone
+you prefer from [here](https://icons.getbootstrap.com/). Please note
+that the number of icon within the list should matches the number of
+domains in the domain list. If you don’t want to use icon, then please
+omit this part.
+
+``` r
+
+## set up icon list
+
+domain_icon <- c(
+  "people-fill",
+  "house-door-fill",
+  "person-walking"
+  )
+```
+
 Now you can use this menu list within a sidebar UI using the
 `accordionTabset()` function. In addition, create a `navset_hidden()`
 bin and place your panels that you’d like to show with
@@ -57,8 +75,9 @@ ui <- bslib::page_sidebar(
   class = "bslib-page-dashboard",
   sidebar = bslib::sidebar(
     accordionTabset(
-      "accord_select", 
-      domain_list,
+      id = "accord_select", 
+      menu_list = domain_list,
+      icon_list = domain_icon,
       class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100"
     )
   ),
