@@ -1,4 +1,7 @@
 #' @title accordionPanelSelect
+#' @aliases accordionPanelSelect
+#' @description  accordionPanelSelect() sets up the server side to update
+#' the page content based on the selected menu-item.
 #' @author Braeden Klaver
 #' @usage accordionPanelSelect(input, session, panel_id, accordion_id, menu_list)
 #' @param input The server input
@@ -13,6 +16,7 @@
 #' @importFrom shiny observe
 #' @importFrom shiny observeEvent
 #' @importFrom shiny updateTabsetPanel
+#' @export accordionPanelSelect
 #' @return An accordion list for domain and sub-domain
 
 

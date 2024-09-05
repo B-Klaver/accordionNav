@@ -17,7 +17,7 @@ accordionTabset(id, menu_list, class = NULL)
 An accordion list for domain and sub-domain
 }
 \description{
-accordionTabset
+accordionTabset() creates the drop down navigation menu UI.
 }
 \author{
 Braeden Klaver

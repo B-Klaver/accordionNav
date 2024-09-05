@@ -21,7 +21,8 @@ accordionPanelSelect(input, session, panel_id, accordion_id, menu_list)
 An accordion list for domain and sub-domain
 }
 \description{
-accordionPanelSelect
+accordionPanelSelect() sets up the server side to update
+the page content based on the selected menu-item.
 }
 \author{
 Braeden Klaver
