@@ -2,10 +2,10 @@
 
 export(accordionPanelSelect)
 export(accordionTabset)
+importFrom(bsicons,bs_icon)
 importFrom(bslib,accordion)
 importFrom(bslib,accordion_panel)
 importFrom(bslib,nav_select)
-importFrom(bsicons,bs_icon)
 importFrom(htmltools,HTML)
 importFrom(htmltools,tags)
 importFrom(purrr,flatten)
