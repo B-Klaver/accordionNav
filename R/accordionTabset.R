@@ -8,6 +8,7 @@
 #' @param class The custom CSS class for the sub-item menu items
 #' @importFrom purrr map
 #' @importFrom shiny actionLink
+#' @importFrom shiny icon
 #' @importFrom bslib accordion
 #' @importFrom bslib accordion_panel
 #' @export accordionTabset
@@ -29,7 +30,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
                 inputId = subitem_id,
                 label   = htmltools::tags$span(
                   htmltools::HTML("&nbsp;"),
-                  icon("angles-right"),
+                  shiny::icon("angles-right"),
                   htmltools::HTML("&nbsp;"),
                   subitem_id),
                 class   = class
@@ -52,7 +53,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
                 inputId = subitem_id,
                 label   = htmltools::tags$span(
                   htmltools::HTML("&nbsp;"),
-                  icon("angles-right"),
+                  shiny::icon("angles-right"),
                   htmltools::HTML("&nbsp;"),
                   subitem_id),
                 class   = class
