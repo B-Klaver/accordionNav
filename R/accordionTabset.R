@@ -1,4 +1,6 @@
 #' @title accordionTabset
+#' @aliases accordionTabset
+#' @description  accordionTabset() creates the drop down navigation menu UI.
 #' @author Braeden Klaver
 #' @usage accordionTabset(id, menu_list, class = NULL)
 #' @param id The shiny ID
@@ -8,6 +10,7 @@
 #' @importFrom shiny actionLink
 #' @importFrom bslib accordion
 #' @importFrom bslib accordion_panel
+#' @export accordionTabset
 #' @return An accordion list for domain and sub-domain
 
 accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
