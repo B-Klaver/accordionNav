@@ -5,7 +5,9 @@
 #' @usage accordionTabset(id, menu_list, class = NULL)
 #' @param id The shiny ID
 #' @param menu_list The nested list with menu items and sub-items.
-#' @param class The custom CSS class for the sub-item menu items
+#' @param class The custom CSS class for the sub-item menu items.
+#' @param icon_list The icon list for the menu items.
+#' @param sub_icon The icon for the sub-item menu items. The default is "angles-right".
 #' @importFrom purrr map
 #' @importFrom purrr pmap
 #' @importFrom shiny actionLink
@@ -18,7 +20,7 @@
 #' @export accordionTabset
 #' @return An accordion list for domain and sub-domain
 
-accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
+accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL, sub_icon = "angles-right") {
   
   if (is.null(icon_list)) {
     list(item_id = names(menu_list)) |> 
@@ -34,7 +36,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
                 inputId = subitem_id,
                 label   = htmltools::tags$span(
                   htmltools::HTML("&nbsp;"),
-                  shiny::icon("angles-right"),
+                  shiny::icon(sub_icon),
                   htmltools::HTML("&nbsp;"),
                   subitem_id),
                 class   = class
@@ -57,7 +59,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL) {
                 inputId = subitem_id,
                 label   = htmltools::tags$span(
                   htmltools::HTML("&nbsp;"),
-                  shiny::icon("angles-right"),
+                  shiny::icon(sub_icon),
                   htmltools::HTML("&nbsp;"),
                   subitem_id),
                 class   = class
