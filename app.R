@@ -37,7 +37,8 @@ ui <- bslib::page_sidebar(
       id = "accord_select", 
       menu_list = domain_list,
       icon_list = domain_icon,
-      class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100"
+      class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100",
+      sub_icon = "square"
     ),
     bslib::input_dark_mode()
   ),
