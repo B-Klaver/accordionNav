@@ -70,6 +70,22 @@ domain_icon <- c(
 
 ```
 
+Each sub-menu item comes with a default icon (>>). To customize the icon, use the sub_icon parameter in the `accordionTabset()` function.. You can explore all available icons [here](https://fontawesome.com/icons).
+
+```{r sub_icon, eval = FALSE}
+
+# set up icon for sub-menu items
+
+accordionTabset(
+      id = "accord_select", 
+      menu_list = domain_list,
+      icon_list = domain_icon,
+      class = "link-body-emphasis d-inline-flex text-decoration-none mb-3 rounded w-100",
+      sub_icon = "square"
+    )
+
+```
+
 Now you can use this menu list within a sidebar UI using the `accordionTabset()` function. In addition, create a `navset_hidden()`
 bin and place your panels that you'd like to show with `nav_panel_hidden()`. The values should be set to the name of the menu item it relates to:
 
