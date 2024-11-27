@@ -2,7 +2,7 @@
 #' @aliases accordionTabset
 #' @description  accordionTabset() creates the drop down navigation menu UI.
 #' @author Braeden Klaver
-#' @usage accordionTabset(id, menu_list, class = NULL)
+#' @usage accordionTabset(id, menu_list, class = NULL, icon_list = NULL, sub_icon = "angles-right")
 #' @param id The shiny ID
 #' @param menu_list The nested list with menu items and sub-items.
 #' @param class The custom CSS class for the sub-item menu items.

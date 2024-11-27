@@ -4,14 +4,18 @@
 \alias{accordionTabset}
 \title{accordionTabset}
 \usage{
-accordionTabset(id, menu_list, class = NULL)
+accordionTabset(id, menu_list, class = NULL, icon_list = NULL, sub_icon = "angles-right")
 }
 \arguments{
 \item{id}{The shiny ID}
 
 \item{menu_list}{The nested list with menu items and sub-items.}
 
-\item{class}{The custom CSS class for the sub-item menu items}
+\item{class}{The custom CSS class for the sub-item menu items.}
+
+\item{icon_list}{The icon list for the menu items.}
+
+\item{sub_icon}{The icon for the sub-item menu items. The default is "angles-right".}
 }
 \value{
 An accordion list for domain and sub-domain
