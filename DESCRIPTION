@@ -1,5 +1,5 @@
 Package: accordionNav
-Title: Accordion Navigation Tabs.
+Title: Accordion Navigation Tabs
 Version: 1.0.0
 Authors@R: 
     c(person(given = "Braeden", 
