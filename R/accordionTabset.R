@@ -28,7 +28,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL, sub_i
         \(item_id)
         bslib::accordion_panel(
           title = item_id,
-          value = item_id,
+          value = paste0(item_id,"_id"),
           menu_list[[item_id]] |>
             purrr::map(
               \(subitem_id)
@@ -50,7 +50,7 @@ accordionTabset <- function(id, menu_list, class = NULL, icon_list = NULL, sub_i
         \(item_id, item_icon)
         bslib::accordion_panel(
           title = item_id,
-          value = item_id,
+          value = paste0(item_id,"_id"),
           icon  = bsicons::bs_icon(item_icon),
           menu_list[[item_id]] |>
             purrr::map(
